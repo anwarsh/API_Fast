@@ -137,3 +137,14 @@ class mixins_pk(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.Destr
     def delete(self, request, pk):
         return self.destroy(request)
 
+class generics_list(generics.ListCreateAPIView):
+    queryset = Client.objects.all()
+    serializer_class = ClientSerialier
+
+
+
+class generics_pk(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Client.objects.all()
+    serializer_class = ClientSerialier
+
+
