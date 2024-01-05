@@ -4,7 +4,7 @@ from .models import Client, Reservation, Film
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import ClientSerialier, ReservationSerialier, FlimSerializer
-from rest_framework import status , filters , generics , mixins
+from rest_framework import status , filters , generics , mixins, viewsets
 from rest_framework.views import APIView
 # Create your views here.
 # 1 without rest and no model query
@@ -148,3 +148,6 @@ class generics_pk(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ClientSerialier
 
 
+class viewsets_client(viewsets.ModelViewSet):
+    queryset = Client.objects.all()
+    serializer_class = ClientSerialier
