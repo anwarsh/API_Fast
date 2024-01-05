@@ -151,3 +151,12 @@ class generics_pk(generics.RetrieveUpdateDestroyAPIView):
 class viewsets_client(viewsets.ModelViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientSerialier
+
+class views_reservation(viewsets.ModelViewSet):
+    queryset = Reservation.objects.all()
+    serializer_class = ReservationSerialier
+
+class views_film(viewsets.ModelViewSet):
+    queryset = Film.objects.all()
+    serializer_class = FlimSerializer
+

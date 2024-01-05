@@ -5,7 +5,9 @@ from tickets import views
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
+router.register('reservations', views.views_reservation)
 router.register('clients', views.viewsets_client)
+router.register('films', views.views_film)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
