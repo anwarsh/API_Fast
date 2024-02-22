@@ -3,11 +3,17 @@ from django.contrib import admin
 from django.urls import include, path
 from tickets import views
 from rest_framework.routers import DefaultRouter
+from accounts.views import TroubleshootingTicketViewSet, ConversationViewSet, SystemResponseViewSet
 
 router = DefaultRouter()
 router.register('reservations', views.views_reservation)
 router.register('clients', views.viewsets_client)
 router.register('films', views.views_film)
+
+router.register(r'tickets', TroubleshootingTicketViewSet)
+router.register(r'conversations', ConversationViewSet)
+router.register(r'responses', SystemResponseViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
