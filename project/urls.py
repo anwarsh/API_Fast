@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import include, path
 from tickets import views
 from rest_framework.routers import DefaultRouter
-from accounts.views import TroubleshootingTicketViewSet, ConversationViewSet, SystemResponseViewSet
+from accounts.views import TroubleshootingTicketViewSet, ConversationViewSet, SystemResponseViewSet, CustomAuthToken
 
 router = DefaultRouter()
 router.register('reservations', views.views_reservation)
@@ -40,5 +40,7 @@ urlpatterns = [
     path('rest/generics/<int:pk>', views.generics_pk.as_view()),
     #9 viewsets 
     path('rest/viewsets/', include(router.urls)),
+
+    path('api-token-auth/', CustomAuthToken.as_view()),
 ]
 
