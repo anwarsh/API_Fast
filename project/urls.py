@@ -41,6 +41,8 @@ urlpatterns = [
     #9 viewsets 
     path('rest/viewsets/', include(router.urls)),
 
+    path('api-auth', include('rest_framework.urls')),
+
     
 ]
 
