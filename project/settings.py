@@ -43,7 +43,13 @@ INSTALLED_APPS = [
     'tickets',
     'accounts',
 ]
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        # Ajoutez d'autres classes d'authentification si nécessaire
+    ],
+    # Autres paramètres de configuration...
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
