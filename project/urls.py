@@ -3,11 +3,18 @@ from django.contrib import admin
 from django.urls import include, path
 from tickets import views
 from rest_framework.routers import DefaultRouter
+from accounts.views import TroubleshootingTicketViewSet, ConversationViewSet, SystemResponseViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = DefaultRouter()
 router.register('reservations', views.views_reservation)
 router.register('clients', views.viewsets_client)
 router.register('films', views.views_film)
+
+router.register(r'tickets', TroubleshootingTicketViewSet)
+router.register(r'conversations', ConversationViewSet)
+router.register(r'responses', SystemResponseViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,5 +41,11 @@ urlpatterns = [
     path('rest/generics/<int:pk>', views.generics_pk.as_view()),
     #9 viewsets 
     path('rest/viewsets/', include(router.urls)),
+
+    path('api-auth', include('rest_framework.urls')),
+
+    # API Token AUTH
+
+    path('api-token-auth', obtain_auth_token),
 ]
 
