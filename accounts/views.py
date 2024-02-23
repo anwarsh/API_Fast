@@ -12,9 +12,9 @@ from rest_framework.permissions import IsAuthenticated
 class TroubleshootingTicketViewSet(viewsets.ModelViewSet):
     queryset = TroubleshootingTicket.objects.all()
     serializer_class = TroubleshootingTicketSerializer
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
 
+    
 class ConversationViewSet(viewsets.ModelViewSet):
     queryset = Conversation.objects.all()
     serializer_class = ConversationSerializer

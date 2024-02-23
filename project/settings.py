@@ -46,9 +46,8 @@ INSTALLED_APPS = [
     'accounts',
 ]
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication'],
-        # Ajoutez d'autres classes d'authentification si nécessaire],
+    'DEFAULT_AUTHENTICATION_CLASSES':
+    ['rest_framework.authentication.TokenAuthentication'],
     #'DEFAULT_PERMISSION_CLASSES':[
     #    'rest_framework.permissions.IsAuthenticated'],
     # Autres paramètres de configuration...

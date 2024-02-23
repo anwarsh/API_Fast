@@ -4,6 +4,7 @@ from django.urls import include, path
 from tickets import views
 from rest_framework.routers import DefaultRouter
 from accounts.views import TroubleshootingTicketViewSet, ConversationViewSet, SystemResponseViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = DefaultRouter()
 router.register('reservations', views.views_reservation)
@@ -43,6 +44,8 @@ urlpatterns = [
 
     path('api-auth', include('rest_framework.urls')),
 
-    
+    # API Token AUTH
+
+    path('api-token-auth', obtain_auth_token),
 ]
 
